@@ -1,0 +1,3 @@
+function option-d() {
+	sudo apt-get update;
+}

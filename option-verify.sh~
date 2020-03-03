@@ -1,0 +1,3 @@
+function option-search() {
+	sudo apt-cache pkgnames  | grep $1
+}

@@ -1,0 +1,46 @@
+#!/bin/bash
+source option-lpy.sh
+source option-ldk.sh
+source option-h.sh
+
+logo="
+	 ______      __   ___    _____     ____   ______      _____   _____    ________  
+(_  __ \    () ) / __)  / ____\   / ___) (   __ \    (_   _) (  __ \  (___  ___) 
+  ) ) \ \   ( (_/ /    ( (___    / /      ) (__) )     | |    ) )_) )     ) )    
+ ( (   ) )  ()   (      \___ \  ( (      (    __/      | |   (  ___/     ( (     
+  ) )  ) )  () /\ \         ) ) ( (       ) \ \  _     | |    ) )         ) )    
+ / /__/ /   ( (  \ \    ___/ /   \ \___  ( ( \ \_))   _| |__ ( (         ( (     
+(______/    ()_)  \_\  /____/     \____)  )_) \__/   /_____( /__\        /__\    
+                                                                                 
+
+"
+
+
+
+OPTION=$(whiptail --title "DKScript tool" --menu "     $logo \n \n" 25 78 8 \
+"1" "Afficher l'Utilisation des Disques." \
+"2" "Afficher les Information Relatives au Disques." \
+"3" "Help." \
+"4" "Exit."  3>&1 1>&2 2>&3)
+
+exitstatus=$?
+if [ $exitstatus = 0 ]; then
+
+    case "$OPTION" in
+      "1")
+      cnt=$(option-lpy)
+      whiptail --title "DKScript" --msgbox "$cnt" 20 78
+      ;;
+      "2")
+      cnt=$(option-ldk)
+      whiptail --title "DKScript" --msgbox "$cnt" 20 78
+      ;;
+      "3")
+      cnt=$(option-h)
+      whiptail --title "DKScript" --msgbox "$cnt" 20 78
+      ;;
+      esac
+
+else
+    echo "You chose Cancel."
+fi

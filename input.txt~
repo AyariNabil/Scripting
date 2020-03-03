@@ -1,0 +1,4 @@
+Filesystem           1K-blocks    Used Available Use% Mounted on
+/dev/mapper/vg_mrstealyourmom-lv_root           9845896 6070892   3675000  63% /
+tmpfs                   508516     272    508244   1% /dev/shm
+/dev/sda1               495844   62933    407311  14% /boot

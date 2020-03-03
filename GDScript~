@@ -1,0 +1,68 @@
+#!/bin/bash
+source option-lp.sh
+source option-lcpu.sh
+source option-s.sh
+source option-d.sh
+source option-h.sh
+
+
+logo="
+
+
+    ██░ ██  █     █░  ██████  ▄████▄   ██▀███   ██▓ ██▓███  ▄▄▄█████▓   
+   ▓██░ ██▒▓█░ █ ░█░▒██    ▒ ▒██▀ ▀█  ▓██ ▒ ██▒▓██▒▓██░  ██▒▓  ██▒ ▓▒   
+   ▒██▀▀██░▒█░ █ ░█ ░ ▓██▄   ▒▓█    ▄ ▓██ ░▄█ ▒▒██▒▓██░ ██▓▒▒ ▓██░ ▒░   
+   ░▓█ ░██ ░█░ █ ░█   ▒   ██▒▒▓▓▄ ▄██▒▒██▀▀█▄  ░██░▒██▄█▓▒ ▒░ ▓██▓ ░    
+   ░▓█▒░██▓░░██▒██▓ ▒██████▒▒▒ ▓███▀ ░░██▓ ▒██▒░██░▒██▒ ░  ░  ▒██▒ ░    
+    ▒ ░░▒░▒░ ▓░▒ ▒  ▒ ▒▓▒ ▒ ░░ ░▒ ▒  ░░ ▒▓ ░▒▓░░▓  ▒▓▒░ ░  ░  ▒ ░░      
+    ▒ ░▒░ ░  ▒ ░ ░  ░ ░▒  ░ ░  ░  ▒     ░▒ ░ ▒░ ▒ ░░▒ ░         ░       
+    ░  ░░ ░  ░   ░  ░  ░  ░  ░          ░░   ░  ▒ ░░░         ░         
+    ░  ░  ░    ░          ░  ░ ░         ░      ░                                                                                    
+"
+
+OPTION=$(whiptail --title "WiScript tool" --menu "     $logo \n \n" 25 78 8 \
+"1" "Afficher les Caractéristiques du Hardware." \
+"2" "Lister les Processus en Cours d'Exécution." \
+"3" "Afficher l'Etat d'un Processus." \
+"4" "Afficher les Informations en Relation Avec le CPU." \
+"5" "Help." \
+"6" "Exit."  3>&1 1>&2 2>&3)
+
+exitstatus=$?
+if [ $exitstatus = 0 ]; then
+
+    case "$OPTION" in
+      "1")
+      cnt=$(option-d)
+      whiptail --title "Hardware" --msgbox "$cnt" 20 78
+      ;;
+      "2")
+      cnt=$(option-lp)
+      whiptail --title "Processus" --msgbox "$cnt" 20 78
+      ;;
+      "3")
+       PID=$(whiptail --inputbox "Enter PID : " 8 78  --title "HWScript" 3>&1 1>&2 2>&3)
+	exitstatus1=$?
+        if [ $exitstatus1 = 0 ]; then
+           cnt=$(option-s $PID)
+	   whiptail --title "Processus $PID" --msgbox "$cnt" 20 78
+        else
+          whiptail --title "WiScript" --msgbox "Operation Canceled !" 8 50
+        fi
+      
+      
+      ;;
+      
+      "4")
+      cnt=$(option-lcpu)
+      whiptail --title "Processus" --msgbox "$cnt" 20 78
+      ;;
+      "5")
+      Updatec=$(option-h)
+      whiptail --title "List AP" --msgbox "$Updatec" 20 78      
+      ;;
+      esac
+
+else
+    echo "You chose Cancel."
+fi

@@ -1,0 +1,3 @@
+function option-lcpu() {
+	sudo apt-get clean;
+}

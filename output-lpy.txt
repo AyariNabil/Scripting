@@ -1,0 +1,12 @@
+Filesystem     1K-blocks    Used Available Use% Mounted on
+udev              996032       0    996032   0% /dev
+tmpfs             203068    6504    196564   4% /run
+/dev/sda1       18447100 4499892  12987108  26% /
+tmpfs            1015328     276   1015052   1% /dev/shm
+tmpfs               5120       4      5116   1% /run/lock
+tmpfs            1015328       0   1015328   0% /sys/fs/cgroup
+tmpfs             203068      80    202988   1% /run/user/1000
+/dev/sdb2        7642528    1668   7640860   1% /media/ayarinabil/MRSTEALYOUR
+[33mFilesystem [33m Size [33m Used [33mAvail [33mUse% [33m          [33mMounted on                   [0m
+[0m/dev/sda1  [0m  18G [0m4577M [0m  12G [0m25.4 [0m[##.....] [0m/                            [0m
+[0m/dev/sdb2  [0m7463M [0m1668k [0m7462M [0m 0.0 [0m[.......] [0m/media/ayarinabil/MRSTEALYOUR[0m
